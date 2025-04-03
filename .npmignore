@@ -1,0 +1,8 @@
+index.html               
+/src    
+/node_modules
+/dist
+tsconfig.json            
+tsconfig.node.json       
+vite.config.ts
+demo.json.d.ts

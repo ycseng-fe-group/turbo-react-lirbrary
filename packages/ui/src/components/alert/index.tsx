@@ -1,14 +1,10 @@
-// import { Button } from "@mui/material";
-// import { AlertProps } from "../../types";
+import { Dialog } from "@mui/material";
+import { AlertProps } from "../../types";
 
-// export function Alert({ children, ...other }: AlertProps): JSX.Element {
-//   return (
-//     <Button type="button" {...other}>
-//       {children}
-//     </Button>
-//   );
-// }
+export function Alert({ children, ...other }: AlertProps): JSX.Element {
+  return <Dialog {...other}>{children}</Dialog>;
+}
 
-// Alert.displayName = "Alert";
+Alert.displayName = "Alert";
 
-// export default Alert;
+export default Alert;

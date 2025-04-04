@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { BasicButton, BasicButtonProps } from "@ui";
+import { BasicButton } from "@ui";
+import type { BasicButtonProps } from "@ui";
 
 const meta = {
   component: BasicButton,
@@ -16,26 +17,21 @@ export default meta;
 type Story = StoryObj<BasicButtonProps>;
 
 export const Primary: Story = {
-  render: (props) => (
-    <BasicButton
-      {...props}
-      onClick={(): void => {
-        // eslint-disable-next-line no-alert -- alert for demo
-        alert("Hello from Turborepo!");
-      }}
-    >
-      Hello
-    </BasicButton>
-  ),
+  render: (props) => <BasicButton {...props}>Hello</BasicButton>,
   name: "Button",
   args: {
     children: "Hello",
     type: "button",
+    variant: "contained",
+    disabled: false,
     style: {
-      color: "blue",
+      color: "white",
       border: "1px solid gray",
       padding: 10,
       borderRadius: 10,
+    },
+    onClick: () => {
+      alert("Hello from Turborepo!");
     },
   },
 };

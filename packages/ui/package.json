@@ -1,6 +1,6 @@
 {
-  "name": "@albamon/admin-core",
-  "version": "0.0.12",
+  "name": "@sungstack/turbo-component",
+  "version": "0.0.1",
   "sideEffects": false,
   "license": "MIT",
   "main": "./dist/index.js",

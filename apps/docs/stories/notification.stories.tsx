@@ -2,10 +2,10 @@ import type { Meta, StoryObj } from "@storybook/react";
 import {
   BasicButton,
   SnackbarNotification,
-  SnackbarNotificationProps,
   useGlobalNotificationFunctions,
   useSnackbarNotificationFunctions,
 } from "@ui";
+import type { SnackbarNotificationProps } from "@ui";
 
 const meta = {
   component: SnackbarNotification,

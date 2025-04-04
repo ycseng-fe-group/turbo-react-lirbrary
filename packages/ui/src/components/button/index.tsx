@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import type { BasicButtonProps } from "../../types/button";
 
 export function BasicButton({
@@ -5,9 +6,9 @@ export function BasicButton({
   ...other
 }: BasicButtonProps): JSX.Element {
   return (
-    <button type="button" {...other}>
+    <Button type="button" {...other}>
       {children}
-    </button>
+    </Button>
   );
 }
 

@@ -1,10 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import {
-  BasicButton,
-  BasicModal,
-  BasicModalProps,
-  useBasicModalFunctions,
-} from "@ui";
+import type { BasicModalProps } from "@ui";
+import { BasicButton, BasicModal, useBasicModalFunctions } from "@ui";
 
 const meta = {
   component: BasicModal,
@@ -12,7 +8,7 @@ const meta = {
     dataSource: {
       name: "Basic Modal Storybook",
       title: "Modal Test",
-      content: <div></div>,
+      content: <div />,
     },
     options: {
       isUseHeader: true,
@@ -48,7 +44,7 @@ export const Primary: Story = {
     dataSource: {
       name: "Basic Modal Storybook",
       title: "Modal Test",
-      content: <div></div>,
+      content: <div />,
     },
     options: {
       isUseHeader: true,

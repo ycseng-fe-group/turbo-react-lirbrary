@@ -21,8 +21,6 @@ export const Primary: Story = {
   render: function Render(props) {
     const [open, setOpen] = useState(false);
 
-    console.log("open : ", open);
-
     return (
       <>
         <Alert

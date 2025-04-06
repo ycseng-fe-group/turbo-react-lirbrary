@@ -1,5 +1,6 @@
+import { useState } from "@storybook/preview-api";
+import { Alert, BasicButton } from "@ui";
 import type { Meta, StoryObj } from "@storybook/react";
-import { BasicButton } from "@ui";
 import type { BasicButtonProps } from "@ui";
 
 const meta = {
@@ -17,7 +18,20 @@ export default meta;
 type Story = StoryObj<BasicButtonProps>;
 
 export const Primary: Story = {
-  render: (props) => <BasicButton {...props}>Hello</BasicButton>,
+  render: function Render(props) {
+    const [open, setOpen] = useState<boolean>(false);
+
+    return (
+      <>
+        <Alert onClose={() => setOpen(false)} open={open}>
+          Hello Tubo wrold
+        </Alert>
+        <BasicButton {...props} onClick={() => setOpen(!open)}>
+          Hello
+        </BasicButton>
+      </>
+    );
+  },
   name: "Button",
   args: {
     children: "Hello",
@@ -29,9 +43,6 @@ export const Primary: Story = {
       border: "1px solid gray",
       padding: 10,
       borderRadius: 10,
-    },
-    onClick: () => {
-      alert("Hello from Turborepo!");
     },
   },
 };

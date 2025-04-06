@@ -19,12 +19,28 @@ type Story = StoryObj<BasicButtonProps>;
 
 export const Primary: Story = {
   render: function Render(props) {
-    const [open, setOpen] = useState<boolean>(false);
+    const [open, setOpen] = useState(false);
+
+    console.log("open : ", open);
 
     return (
       <>
-        <Alert onClose={() => setOpen(false)} open={open}>
-          Hello Tubo wrold
+        <Alert
+          footer={
+            <>
+              <BasicButton onClick={() => setOpen(false)}>취소</BasicButton>
+              <BasicButton autoFocus onClick={() => setOpen(false)}>
+                확인
+              </BasicButton>
+            </>
+          }
+          onClose={() => setOpen(false)}
+          open={open}
+          title="hello World!!"
+        >
+          안녕하세요 Tubon repo 입니다.
+          <br />
+          동의하시겠습니까?
         </Alert>
         <BasicButton {...props} onClick={() => setOpen(!open)}>
           Hello

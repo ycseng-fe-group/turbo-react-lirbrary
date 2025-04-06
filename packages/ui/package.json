@@ -42,9 +42,6 @@
     "@types/lodash-es": "4.17.6",
     "@types/uuid": "8.3.4"
   },
-  "publishConfig": {
-    "registry": "https://repository.01.mgt.iconic.albamon.com/repository/albamon-npm-test-hosted/"
-  },
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

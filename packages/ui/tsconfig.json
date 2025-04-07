@@ -1,5 +1,5 @@
 {
-  "extends": "@repo/typescript-config/react-library.json",
+  "extends": "@yeoncheol/typescript-config/react-library.json",
   "include": [".", "src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["dist", "build", "node_modules"],
   "compilerOptions": {

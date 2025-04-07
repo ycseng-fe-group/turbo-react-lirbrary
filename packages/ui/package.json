@@ -1,5 +1,5 @@
 {
-  "name": "@sungstack/turbo-component",
+  "name": "@yeoncheol/turbo-component",
   "version": "0.0.1",
   "sideEffects": false,
   "license": "MIT",
@@ -32,11 +32,11 @@
     "zustand": "4.3.3"
   },
   "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
+    "@yeoncheol/eslint-config": "workspace:*",
     "@types/react": "^18.2.61",
     "@types/react-dom": "^18.2.19",
     "eslint": "^8.57.0",
-    "@repo/typescript-config": "workspace:*",
+    "@yeoncheol/typescript-config": "workspace:*",
     "tsup": "^8.0.2",
     "typescript": "5.5.4",
     "@types/lodash-es": "4.17.6",

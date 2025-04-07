@@ -1,5 +1,5 @@
 {
-  "extends": "@repo/typescript-config/react-app.json",
+  "extends": "@yeoncheol/typescript-config/react-app.json",
   "include": [".", "stories/**/*.ts", "stories/**/*.tsx"],
   "exclude": ["dist", "build", "node_modules"],
   "compilerOptions": {

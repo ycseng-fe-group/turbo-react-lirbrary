@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Dialog,
   DialogActions,
@@ -6,9 +7,8 @@ import {
   DialogTitle,
   Slide,
 } from "@mui/material";
-import { AlertProps } from "../../types";
-import React from "react";
-import { TransitionProps } from "@mui/material/transitions";
+import type { TransitionProps } from "@mui/material/transitions";
+import type { AlertProps } from "../../types";
 
 export function Alert({ children, ...other }: AlertProps): JSX.Element {
   const Transition = React.forwardRef(function Transition(
@@ -25,14 +25,14 @@ export function Alert({ children, ...other }: AlertProps): JSX.Element {
   const { children: footerChildren } = footer || {};
 
   return (
-    <Dialog {...other} onClose={onClose} TransitionComponent={Transition}>
-      {headerChildren && <DialogTitle>{headerChildren}</DialogTitle>}
+    <Dialog {...other} TransitionComponent={Transition} onClose={onClose}>
+      {headerChildren ? <DialogTitle>{headerChildren}</DialogTitle> : null}
       <DialogContent>
         <DialogContentText id="alert-dialog-slide-description">
           {children}
         </DialogContentText>
       </DialogContent>
-      {footerChildren && <DialogActions>{footerChildren}</DialogActions>}
+      {footerChildren ? <DialogActions>{footerChildren}</DialogActions> : null}
     </Dialog>
   );
 }

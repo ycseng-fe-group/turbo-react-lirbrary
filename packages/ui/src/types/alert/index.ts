@@ -1,4 +1,4 @@
-import { DialogProps } from "@mui/material";
+import type { DialogProps } from "@mui/material";
 
 interface HeaderProps {
   children: React.ReactNode;

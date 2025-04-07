@@ -31,7 +31,7 @@ module.exports = {
       },
     },
   },
-  ignorePatterns: ["node_modules/", "dist/", ".eslintrc.js", "**/*.css"],
+  ignorePatterns: ["node_modules/", "dist/", ".eslintrc.cjs", "**/*.css"],
   // add rules configurations here
   rules: {
     "max-len": [
@@ -67,6 +67,7 @@ module.exports = {
         tsx: "never",
       },
     ],
+    "import/no-default-export": "off",
     "import/no-anonymous-default-export": "off",
     "object-curly-newline": "off",
     "jsx-a11y/role-supports-aria-props": "off",

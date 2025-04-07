@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { BasicTableStore } from "../../types/table";
+import type { BasicTableStore } from "../../types/table";
 
 const initialBasicTableStore: BasicTableStore = {
   buttonModalCustomProps: {},

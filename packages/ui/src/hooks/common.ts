@@ -1,6 +1,6 @@
 import { get, isEmpty } from "lodash-es";
 import { useBasicTableStore } from "../store/table";
-import { CheckedTableType } from "../types/common";
+import type { CheckedTableType } from "../types/common";
 
 export const makeCheckedRowList = (
   type: CheckedTableType,
@@ -36,7 +36,7 @@ export const makeCheckedRowList = (
   if (isEmpty(finalCheckedRowList)) {
     resultItems = items;
   } else {
-    const changeTargetRowIdList: Array<string | number> = [];
+    const changeTargetRowIdList: (string | number)[] = [];
 
     items.forEach((item) => {
       changeTargetRowIdList.push(get(item, finalRowIdName) || "");

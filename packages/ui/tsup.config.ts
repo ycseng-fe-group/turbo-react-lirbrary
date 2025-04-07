@@ -5,8 +5,8 @@ const filePath = "./src";
 const dist = `./dist`;
 
 const external = [
-  ...Object.keys(pkg.dependencies || {}),
-  ...Object.keys(pkg.peerDependencies || {}),
+  ...Object.keys(pkg.dependencies),
+  ...Object.keys(pkg.peerDependencies),
 ];
 
 export default defineConfig(() => ({

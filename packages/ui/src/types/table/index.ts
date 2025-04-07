@@ -17,7 +17,7 @@ export interface BasicTablePaginationInfo {
 export interface BasicTableSortInfo {
   sortName?: string;
   sortType: number | string;
-  sortOrder: "asc" | "desc" | string;
+  sortOrder: "asc" | "desc";
 }
 
 export interface BasicTableSubPaginationInfo {

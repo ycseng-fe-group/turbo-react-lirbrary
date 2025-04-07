@@ -1,12 +1,14 @@
 {
-  "name": "@yeoncheol/turbo-component",
+  "name": "@sungstack/turbo-component",
   "version": "0.0.1",
-  "sideEffects": false,
   "license": "MIT",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "dist",
     "README.md"

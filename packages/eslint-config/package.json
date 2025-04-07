@@ -1,11 +1,14 @@
 {
-  "name": "@yeoncheol/eslint-config",
+  "name": "@sungstack/eslint-config",
   "version": "0.0.1",
   "files": [
     "library.js",
     "react.js",
     "storybook.js"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "@vercel/style-guide": "^5.2.0",
     "eslint-config-turbo": "^2.0.0",

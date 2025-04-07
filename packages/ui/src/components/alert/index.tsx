@@ -10,7 +10,7 @@ import {
 import type { TransitionProps } from "@mui/material/transitions";
 import type { AlertProps } from "../../types";
 
-export function Alert({ children, ...other }: AlertProps): JSX.Element {
+export function Alert({ children, ...other }: AlertProps): JSX.Element | null {
   const Transition = React.forwardRef(function Transition(
     props: TransitionProps & {
       children: React.ReactElement<any, any>;
@@ -20,19 +20,20 @@ export function Alert({ children, ...other }: AlertProps): JSX.Element {
     return <Slide direction="up" ref={ref} {...props} />;
   });
 
-  const { header, footer, onClose } = other;
-  const { children: headerChildren } = header || {};
-  const { children: footerChildren } = footer || {};
+  const { open, header, footer, onClose } = other;
 
+  if (!open) {
+    return null;
+  }
   return (
     <Dialog {...other} TransitionComponent={Transition} onClose={onClose}>
-      {headerChildren ? <DialogTitle>{headerChildren}</DialogTitle> : null}
+      {header ? <DialogTitle>{header}</DialogTitle> : null}
       <DialogContent>
         <DialogContentText id="alert-dialog-slide-description">
           {children}
         </DialogContentText>
       </DialogContent>
-      {footerChildren ? <DialogActions>{footerChildren}</DialogActions> : null}
+      {footer ? <DialogActions>{footer}</DialogActions> : null}
     </Dialog>
   );
 }

@@ -4,14 +4,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import type { BasicButtonProps } from "@ui";
 
 const meta = {
-  component: BasicButton,
-  argTypes: {
-    type: {
-      control: { type: "radio" },
-      options: ["button", "submit", "reset"],
-    },
-  },
-} satisfies Meta<typeof BasicButton>;
+  component: Alert,
+} satisfies Meta<typeof Alert>;
 
 export default meta;
 
@@ -29,7 +23,58 @@ export const Primary: Story = {
             setOpen(true);
           }}
         >
-          Hello
+          Alert
+        </BasicButton>
+        <Alert
+          aria-describedby="alert-dialog-slide-description"
+          footer={
+            <BasicButton
+              onClick={() => {
+                setOpen(false);
+              }}
+            >
+              확인
+            </BasicButton>
+          }
+          header="안녕하세요"
+          onClose={() => {
+            setOpen(false);
+          }}
+          open={open}
+        >
+          Hello Alert
+        </Alert>
+      </>
+    );
+  },
+  name: "alert",
+  args: {
+    children: "Hello",
+    type: "button",
+    variant: "contained",
+    color: "success",
+    style: {
+      color: "white",
+      border: "1px solid gray",
+      padding: 10,
+      borderRadius: 10,
+    },
+  },
+};
+
+export const Confirm: Story = {
+  render: function Render(props) {
+    const [open, setOpen] = useState(false);
+
+    return (
+      <>
+        <BasicButton
+          {...props}
+          onClick={() => {
+            setOpen(true);
+          }}
+        >
+          confirm
         </BasicButton>
         <Alert
           aria-describedby="alert-dialog-slide-description"
@@ -51,22 +96,29 @@ export const Primary: Story = {
               </BasicButton>
             </>
           }
-          header="확인"
+          header="안녕하세요"
           keepMounted
           onClose={() => {
             setOpen(false);
           }}
           open={open}
         >
-          TurboRepo world
+          Hello Confirm
         </Alert>
       </>
     );
   },
-  name: "Button",
+  name: "confirm",
   args: {
     children: "Hello",
     type: "button",
     variant: "contained",
+    color: "inherit",
+    style: {
+      color: "black",
+      border: "1px solid gray",
+      padding: 10,
+      borderRadius: 10,
+    },
   },
 };

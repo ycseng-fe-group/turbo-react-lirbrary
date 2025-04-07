@@ -1,4 +1,5 @@
 import { Button } from "@mui/material";
+import Stack from "@mui/material/Stack";
 import type { BasicButtonProps } from "../../types/button";
 
 export function BasicButton({
@@ -6,9 +7,11 @@ export function BasicButton({
   ...other
 }: BasicButtonProps): JSX.Element {
   return (
-    <Button type="button" {...other}>
-      {children}
-    </Button>
+    <Stack direction="row" spacing={2}>
+      <Button type="button" {...other}>
+        {children}
+      </Button>
+    </Stack>
   );
 }
 

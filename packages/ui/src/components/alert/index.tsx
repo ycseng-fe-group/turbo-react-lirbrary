@@ -4,30 +4,36 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
+  Slide,
 } from "@mui/material";
 import { AlertProps } from "../../types";
-import BasicButton from "../button";
 import React from "react";
+import { TransitionProps } from "@mui/material/transitions";
 
 export function Alert({ children, ...other }: AlertProps): JSX.Element {
-  const { title, footer } = other;
+  const Transition = React.forwardRef(function Transition(
+    props: TransitionProps & {
+      children: React.ReactElement<any, any>;
+    },
+    ref: React.Ref<unknown>
+  ) {
+    return <Slide direction="up" ref={ref} {...props} />;
+  });
+
+  const { header, footer, onClose } = other;
+  const { children: headerChildren } = header || {};
+  const { children: footerChildren } = footer || {};
 
   return (
-    <React.Fragment>
-      <Dialog
-        {...other}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
-        {title && <DialogTitle id="alert-dialog-title">{title}</DialogTitle>}
-        <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            {children}
-          </DialogContentText>
-        </DialogContent>
-        {footer && <DialogActions>{footer}</DialogActions>}
-      </Dialog>
-    </React.Fragment>
+    <Dialog {...other} onClose={onClose} TransitionComponent={Transition}>
+      {headerChildren && <DialogTitle>{headerChildren}</DialogTitle>}
+      <DialogContent>
+        <DialogContentText id="alert-dialog-slide-description">
+          {children}
+        </DialogContentText>
+      </DialogContent>
+      {footerChildren && <DialogActions>{footerChildren}</DialogActions>}
+    </Dialog>
   );
 }
 

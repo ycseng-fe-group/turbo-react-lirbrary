@@ -23,26 +23,30 @@ export const Primary: Story = {
 
     return (
       <>
-        <Alert
-          footer={
-            <>
-              <BasicButton onClick={() => setOpen(false)}>취소</BasicButton>
-              <BasicButton autoFocus onClick={() => setOpen(false)}>
-                확인
-              </BasicButton>
-            </>
-          }
-          onClose={() => setOpen(false)}
-          open={open}
-          title="hello World!!"
+        <BasicButton
+          {...props}
+          onClick={() => {
+            setOpen(true);
+          }}
         >
-          안녕하세요 Tubon repo 입니다.
-          <br />
-          동의하시겠습니까?
-        </Alert>
-        <BasicButton {...props} onClick={() => setOpen(!open)}>
           Hello
         </BasicButton>
+        <Alert
+          aria-describedby="alert-dialog-slide-description"
+          footer={{
+            children: "확인",
+          }}
+          header={{
+            children: "안녕하세요",
+          }}
+          keepMounted
+          onClose={() => {
+            setOpen(false);
+          }}
+          open={open}
+        >
+          TurboRepo world
+        </Alert>
       </>
     );
   },

@@ -25,9 +25,9 @@ export default meta;
 type Story = StoryObj<BasicModalProps>;
 
 export const Primary: Story = {
-  render: (props: BasicModalProps) => {
+  render: function Render(props) {
     const { setModalOpen, setTargetModalName } = useBasicModalFunctions();
-    const handleOpenModal = () => {
+    const handleOpenModal = (): void => {
       setTargetModalName("Basic Modal Storybook");
       setModalOpen(true);
     };

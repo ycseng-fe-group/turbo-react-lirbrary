@@ -27,12 +27,12 @@ export default meta;
 type Story = StoryObj<SnackbarNotificationProps>;
 
 export const Primary: Story = {
-  render: (props: SnackbarNotificationProps) => {
+  render: function Render(props) {
     const { setSnackbarNotificationOpen, setTargetSnackbarNotificationName } =
       useSnackbarNotificationFunctions();
     const setStoreIsUseGlobalNotification =
       useGlobalNotificationFunctions.getState().setIsUseGlobalNotification;
-    const handleOpenSnackbarNotification = () => {
+    const handleOpenSnackbarNotification = (): void => {
       setStoreIsUseGlobalNotification(false);
       setSnackbarNotificationOpen(true);
     };

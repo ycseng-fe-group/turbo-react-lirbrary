@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { get, isEmpty, isEqualWith } from "lodash-es";
 import { useBasicTableStore } from "../../store/table";
 import { makeCheckedRowList } from "../common";
-import {
+import type {
   BasicTableIsResetPaginationInfo,
   BasicTableIsResetSubPaginationInfo,
   BasicTablePaginationInfo,

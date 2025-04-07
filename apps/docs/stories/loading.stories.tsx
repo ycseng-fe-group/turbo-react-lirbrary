@@ -19,7 +19,9 @@ export default meta;
 type Story = StoryObj<LoadingProps>;
 
 export const Primary: Story = {
-  render: (props: LoadingProps) => <Loading {...props} />,
+  render: function Render(props) {
+    return <Loading {...props} />;
+  },
   name: "Loading",
   args: {
     options: {

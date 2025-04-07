@@ -39,7 +39,9 @@ export const makeCheckedRowList = (
     const changeTargetRowIdList: (string | number)[] = [];
 
     items.forEach((item) => {
-      changeTargetRowIdList.push(get(item, finalRowIdName) || "");
+      changeTargetRowIdList.push(
+        (get(item, finalRowIdName) || "") as string | number
+      );
     });
     finalCheckedRowList.forEach((item) => {
       if (

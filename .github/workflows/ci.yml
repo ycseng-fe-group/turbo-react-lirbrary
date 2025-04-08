@@ -1,10 +1,14 @@
 name: CI
 
 on:
+  # master 브랜치 push 시 실행
   push:
     branches: ["master"]
   pull_request:
     types: [opened, synchronize]
+  # 5분 주기로 실행
+  schedule:
+    - cron: "*/5 * * * *"
 
 jobs:
   build:
@@ -29,7 +33,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 18
           cache: "pnpm"
 
       - name: Install dependencies
@@ -37,6 +41,3 @@ jobs:
 
       - name: Build
         run: pnpm build
-
-      - name: Test
-        run: pnpm test

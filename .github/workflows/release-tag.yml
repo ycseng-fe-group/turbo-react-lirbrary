@@ -1,14 +1,14 @@
 name: release tag
+
+permissions:
+  contents: write
 on:
   push:
     branches:
       - master
-
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      issues: write
     steps:
       - uses: actions/checkout@v2
       - name: 버전 정보 추출

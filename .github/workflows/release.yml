@@ -1,16 +1,13 @@
-name: CI
+name: release
 
 on:
   # master 브랜치 push 시 실행
   push:
     tags:
       - "v*"
-    branches: ["master"]
+    # branches: master
   pull_request:
     types: [opened, synchronize]
-  # 5분 주기로 실행
-  schedule:
-    - cron: "*/5 * * * *"
 
 jobs:
   build:

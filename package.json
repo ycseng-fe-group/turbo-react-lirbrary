@@ -1,13 +1,13 @@
 {
   "scripts": {
-    "build": "turbo run build",
+    "build": "turbo run build --filter=@sungstack/turbo-component",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "clean": "turbo run clean && rm -rf node_modules",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "turbo run build --filter=docs^... && changeset publish",
+    "release": "pnpm build && changeset publish",
     "preview-storybook": "turbo run preview-storybook",
     "type-checker": "turbo run type-checker"
   },

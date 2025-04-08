@@ -17,7 +17,8 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "lint": "eslint . --max-warnings 20",
-    "clean": "rm -rf .turbo node_modules dist"
+    "clean": "rm -rf .turbo node_modules dist",
+    "type-checker": "tsc --noEmit"
   },
   "dependencies": {
     "react": "18.2.0",

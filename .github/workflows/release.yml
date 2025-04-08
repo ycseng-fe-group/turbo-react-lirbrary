@@ -6,8 +6,6 @@ on:
     tags:
       - "v*"
     # branches: master
-  pull_request:
-    types: [opened, synchronize]
 
 jobs:
   build:
@@ -20,7 +18,7 @@ jobs:
     #  TURBO_TEAM: ${{ vars.TURBO_TEAM }}
 
     steps:
-      - name: code 체크아웃
+      - name: code checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 2
@@ -35,7 +33,7 @@ jobs:
           node-version: 18
           cache: "pnpm"
 
-      - name: 패키지 dependencies install
+      - name: 패키지 설치
         run: pnpm install
 
       - name: 타입체크

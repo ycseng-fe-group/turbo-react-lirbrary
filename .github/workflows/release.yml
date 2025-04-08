@@ -20,7 +20,7 @@ jobs:
     #  TURBO_TEAM: ${{ vars.TURBO_TEAM }}
 
     steps:
-      - name: Check out code
+      - name: code 체크아웃
         uses: actions/checkout@v4
         with:
           fetch-depth: 2
@@ -29,20 +29,20 @@ jobs:
         with:
           version: 8
 
-      - name: Setup Node.js environment
+      - name: node.js setup
         uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: "pnpm"
 
-      - name: Install dependencies
+      - name: 패키지 dependencies install
         run: pnpm install
 
-      - name: Build
-        run: pnpm build
-
-      - name: type-check
+      - name: 타입체크
         run: pnpm type-checker
 
-      - name: publish
+      - name: 빌드
+        run: pnpm build
+
+      - name: 패키지 배포
         run: pnpm release

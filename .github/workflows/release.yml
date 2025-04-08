@@ -1,39 +1,51 @@
-name: Release
+name: CI
 
 on:
+  # master 브랜치 push 시 실행
   push:
-    branches:
-      - main
-
-concurrency: ${{ github.workflow }}-${{ github.ref }}
+    tags:
+      - "v*"
+    branches: ["master"]
+  pull_request:
+    types: [opened, synchronize]
+  # 5분 주기로 실행
+  schedule:
+    - cron: "*/5 * * * *"
 
 jobs:
-  release:
-    name: Release
+  build:
+    name: Build and Test
+    timeout-minutes: 15
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v4
+    # To use Remote Caching, uncomment the next lines and follow the steps below.
+    # env:
+    #  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+    #  TURBO_TEAM: ${{ vars.TURBO_TEAM }}
 
-      - name: Setup Node.js 20.x
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 8
+
+      - name: Setup Node.js environment
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 18
+          cache: "pnpm"
 
-      - name: Install Dependencies
-        run: yarn
+      - name: Install dependencies
+        run: pnpm install
 
-      - name: Create Release Pull Request or Publish to npm
-        id: changesets
-        uses: changesets/action@v1
-        with:
-          # This expects you to have a script called release which does a build for your packages and calls changeset publish
-          publish: yarn release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Build
+        run: pnpm build
 
-      - name: Send a Slack notification if a publish happens
-        if: steps.changesets.outputs.published == 'true'
-        # You can do something when a publish happens.
-        run: my-slack-bot send-notification --message "A new version of ${GITHUB_REPOSITORY} was published!"
+      - name: type-check
+        run: pnpm type-checker
+
+      - name: publish
+        run: pnpm release

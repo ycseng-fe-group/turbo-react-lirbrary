@@ -58,7 +58,7 @@ export const Primary: Story = {
           }}
           open={open}
         >
-          TurboRepo world
+          터보레포 월드!
         </Alert>
       </>
     );

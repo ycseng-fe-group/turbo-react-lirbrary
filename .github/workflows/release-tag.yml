@@ -15,13 +15,13 @@ jobs:
       id-token: write
 
     steps:
-      - name: Bump version and push tag
+      - name: 태그 버전 생성
         id: tag_version
         uses: mathieudutour/github-tag-action@v6.1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create a GitHub release
+      - name: release 생성
         uses: ncipollo/release-action@v1
         with:
           tag: ${{ steps.tag_version.outputs.new_tag }}

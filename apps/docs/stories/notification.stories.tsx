@@ -44,7 +44,7 @@ export const Primary: Story = {
           onClick={handleOpenSnackbarNotification}
           variant="contained"
         >
-          알림 버튼1
+          알림 버튼2
         </BasicButton>
         <SnackbarNotification {...props} />
       </>

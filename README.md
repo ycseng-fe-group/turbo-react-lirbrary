@@ -36,6 +36,8 @@ pnpm build
 ![NextJs](https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=Next.js&logoColor=white)
 ![Node JS](https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=Node.js&logoColor=whit)
 ![Bash](https://img.shields.io/badge/BASH-F15A24?style=for-the-badge&logo=Zsh&logoColor=white)
+![Github Action](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
+![MUI](https://img.shields.io/badge/MUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white)
 <br>
 <br>
 
@@ -49,6 +51,8 @@ pnpm build
 
 <br>
 <br>
+
+### 🍳 프로젝트 실행
 
 ### 🍳 프로젝트 구조
 
@@ -107,15 +111,10 @@ pnpm prettier
 pnpm type-check
 ```
 
-## 🍳 Git Commit Naming
+## 🍳 Tools
 
----
-
-```
-  (서비스명) 동사(Add, Remove, Fix, Modify, Improve, Simplify, Refactor, Merge, Move) 내용
-  [JIRA-KEY]
-
-  # ex
-  (services) Add MyComponent
-  [ALBAMON-1234]
-```
+| 항목             | 실행              |
+| ---------------- | ----------------- |
+| **lint 체크**    | `pnpm type-check` |
+| **clean**        | `pnpm clean`      |
+| **type-checker** | `pnpm type-check` |

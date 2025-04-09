@@ -1,6 +1,7 @@
 {
   "scripts": {
     "build": "turbo run build --filter=@sungstack/turbo-component",
+    "build:storybook": "turbo run build --filter=@sungstack/storybook",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "clean": "turbo run clean && rm -rf node_modules",

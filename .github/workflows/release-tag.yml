@@ -1,7 +1,7 @@
 name: github action tag release
 
 on:
-  push:
+  pull_request:
     branches:
       - master
 

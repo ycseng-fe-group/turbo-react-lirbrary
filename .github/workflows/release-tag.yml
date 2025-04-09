@@ -15,7 +15,7 @@ jobs:
       id-token: write
 
     steps:
-      - name: 태그 버전 생성
+      - name: tag 생성
         id: tag_version
         uses: mathieudutour/github-tag-action@v6.1
         with:

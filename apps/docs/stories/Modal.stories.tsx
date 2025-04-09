@@ -34,7 +34,9 @@ export const Primary: Story = {
 
     return (
       <>
-        <BasicButton onClick={handleOpenModal}>모달 버튼</BasicButton>
+        <BasicButton onClick={handleOpenModal} variant="contained">
+          모달 버튼
+        </BasicButton>
         <BasicModal {...props} />
       </>
     );

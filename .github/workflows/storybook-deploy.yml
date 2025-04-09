@@ -3,9 +3,6 @@ name: storybook deploy
 on:
   push:
     branches: master
-    paths:
-      - "**.stories.ts"
-      - "**.stories.tsx"
 
 jobs:
   deploy:

@@ -42,7 +42,7 @@ export const Primary: Story = {
           }}
           open={open}
         >
-          Hello Alert
+          헬로 월드
         </Alert>
       </>
     );

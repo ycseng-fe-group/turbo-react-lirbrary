@@ -9,6 +9,11 @@ on:
 
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -25,7 +30,7 @@ jobs:
           node-version: 18
 
       # 3. 의존성 설치 및 캐싱
-      - name: Install package dependencies
+      - name: Package dependencies
         run: pnpm install
 
       # 4. Storybook 빌드

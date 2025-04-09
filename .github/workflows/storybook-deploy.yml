@@ -17,21 +17,27 @@ jobs:
       - name: Repository checkout
         uses: actions/checkout@v3
 
-      # 2. node js 설정
+      # 2. pnpm 설정
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 8
+
+      # 3. node js 설정
       - name: Setup node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
+          cache: "pnpm"
 
-      # 3. 의존성 설치 및 캐싱
+      # 4. 의존성 설치 및 캐싱
       - name: Package dependencies
         run: pnpm install
 
-      # 4. Storybook 빌드
+      # 5. Storybook 빌드
       - name: Build Storybook
         run: pnpm build:storybook
 
-      # 5. 결과물을 gh-pages 브랜치로 배포
+      # 6. 결과물을 gh-pages 브랜치로 배포
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:

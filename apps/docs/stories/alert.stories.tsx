@@ -23,7 +23,7 @@ export const Primary: Story = {
             setOpen(true);
           }}
         >
-          Alert
+          헬로
         </BasicButton>
         <Alert
           aria-describedby="alert-dialog-slide-description"

@@ -7,11 +7,8 @@ on:
       - "**.stories.ts"
       - "**.stories.tsx"
 
-  workflow_dispatch:
-
 jobs:
-  setup-build-deploy:
-    name: Setup, Build, and Deploy
+  deploy:
     runs-on: ubuntu-latest
     permissions:
       packages: write
